@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Bio Formatter</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        input, textarea, button{
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        textarea{
+            height: 100px;
+        }
+
+        #result{
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #check{
+            margin-top: 20px;
+            color: blue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Student Bio Formatter</h2>
+
+<input type="text" id="name" placeholder="Student Full Name">
+
+<br>
+
+<input type="text" id="city" placeholder="City">
+
+<br>
+
+<textarea id="intro" placeholder="Short Introduction"></textarea>
+
+<br>
+
+<button onclick="formatInfo()">Format Information</button>
+
+<button onclick="checkName()">Check Name</button>
+
+<div id="result"></div>
+
+<div id="check"></div>
+
+<script>
+
+function formatInfo(){
+
+    let name = document.getElementById("name").value.trim()
+
+    let city = document.getElementById("city").value
+
+    let intro = document.getElementById("intro").value
+
+    let nameLength = name.length
+
+    let firstSpace = name.indexOf(" ")
+
+    let firstName
+
+    if(firstSpace == -1){
+        firstName = name
+    }
+    else{
+        firstName = name.slice(0, firstSpace)
+    }
+
+    let upperName = name.toUpperCase()
+
+    let lowerCity = city.toLowerCase()
+
+    let newIntro = intro.replaceAll("student","developer")
+
+    let shortIntro = newIntro.substring(0,20)
+
+    document.getElementById("result").innerHTML =
+    "<b>Clean Name:</b> " + name + "<br><br>" +
+    "<b>Name Length:</b> " + nameLength + "<br><br>" +
+    "<b>First Name:</b> " + firstName + "<br><br>" +
+    "<b>Uppercase Name:</b> " + upperName + "<br><br>" +
+    "<b>City:</b> " + lowerCity + "<br><br>" +
+    "<b>Updated Introduction:</b> " + newIntro + "<br><br>" +
+    "<b>First 20 Characters:</b> " + shortIntro
+
+}
+
+function checkName(){
+
+    let name = document.getElementById("name").value.trim()
+
+    if(name.indexOf("Bilal") != -1){
+        document.getElementById("check").innerHTML = "Bilal is present in the name."
+    }
+    else{
+        document.getElementById("check").innerHTML = "Bilal is not present."
+    }
+
+}
+
+
+
+document.getElementById("result").innerHTML =
+"<b>Clean Name:</b> " + name + "<br><br>" +
+"<b>Name Length:</b> " + nameLength + "<br><br>" +
+"<b>First Name:</b> " + firstName + "<br><br>" +
+"<b>Uppercase Name:</b> " + upperName + "<br><br>" +
+"<b>City:</b> " + lowerCity + "<br><br>" +
+"<b>Updated Introduction:</b> " + newIntro + "<br><br>" +
+"<b>First 20 Characters:</b> " + shortIntro
+document.getElementById("result").innerHTML +=
+
+"<hr>" +
+
+"<b>Clean Name:</b> " + name + "<br><br>" +
+
+"<b>Name Length:</b> " + nameLength + "<br><br>" +
+
+"<b>First Name:</b> " + firstName + "<br><br>" +
+
+"<b>Uppercase Name:</b> " + upperName + "<br><br>" +
+
+"<b>City:</b> " + lowerCity + "<br><br>" +
+
+"<b>Updated Introduction:</b> " + newIntro + "<br><br>" +
+
+"<b>First 20 Characters:</b> " + shortIntro + "<br><br>"
+</script>
+
+</body>
+</html>
